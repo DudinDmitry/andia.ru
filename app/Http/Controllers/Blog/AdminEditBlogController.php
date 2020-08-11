@@ -3,12 +3,16 @@
 namespace App\Http\Controllers\Blog;
 
 use App\Http\Controllers\Controller;
+use Faker\Provider\Image;
 use Illuminate\Http\Request;
 use App\BlogCategory;
 use App\BlogArticle;
+use Intervention\Image\Facades\Image as Images;
+
 
 class AdminEditBlogController extends Controller
 {
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -213,6 +217,18 @@ class AdminEditBlogController extends Controller
             'article' => BlogArticle::find($id),
             'allCategories' => BlogCategory::all(),
         ]);
+    }
+
+    public function test(Request $request)
+    {
+
+
+        dump($request->request);
+        if (isset($request->submit)) {
+            Images::make($request->file)->resize(200, 200)->save('foo2.jpg');
+        }
+
+        return view('admin.blog.test');
     }
 
 }
