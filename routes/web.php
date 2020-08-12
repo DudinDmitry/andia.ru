@@ -31,5 +31,5 @@ Route::match(['get','post'],'/admin/blog/articles','Blog\AdminEditBlogController
 Route::match(['get','post'],'/admin/blog/edit-article/{id}','Blog\AdminEditBlogController@editArticle')->where('id','[0-9]+');
 //Админка Блог Добавление Статьи
 Route::match(['get','post'],'/admin/blog/add-article','Blog\AdminEditBlogController@addArticle');
-//Test
-Route::match(['get','post'],'test','Blog\AdminEditBlogController@test');
+//Редактирование изображений
+Route::match(['get','post'],'test','Blog\AdminEditBlogController@imageEdit');

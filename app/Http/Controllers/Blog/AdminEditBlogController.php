@@ -219,14 +219,48 @@ class AdminEditBlogController extends Controller
         ]);
     }
 
-    public function test(Request $request)
+    public function imageEdit()
     {
-
-
-        dump($request->request);
-        if (isset($request->submit)) {
-            Images::make($request->file)->resize(200, 200)->save('foo2.jpg');
+        /*
+         * API для работы с изображениями
+         * Входные параметры:
+         *      Обязательные:
+         *      filename - имя изображения. Файлы ищутся в папке 'images/upload/'
+         *
+         *      Необязательные:
+         *      q - качество изображения, по дефолту 100
+         *      size - размер изображения (Разделитель '/') - например: 192/192
+         *      c - обрезка изображения. Если параметр не равен 1, вернёт уменьшенную картинку по большей стороне
+         *      Если параметр = 1, то вернёт обрезанное изображение. Параметр необходимо ставить обязательно перед size
+         *
+         */
+        //Качество изображения
+        $quality = 100;
+        if (is_numeric($_GET['q'])) {
+            $quality = $_GET['q'];
         }
+        //Имя изображения
+        if (!empty($_GET['filename'])) {
+            $img = Images::make('images/upload/' . $_GET['filename']);
+            copy('images/upload/' . $_GET['filename'],'images/upload/'.$img->filename.'_old.'.explode('.',$_GET['filename'])[1]);
+        }
+        $img_new=$img;
+        //Ресайз по большей стороне
+        if (!isset($_GET['c'])) {
+            if (!empty($_GET['size'])) {
+                $explodeSize = explode('/', $_GET['size']);
+                $img_new->resize($explodeSize[0], $explodeSize[1], function ($constraint) {
+                    $constraint->aspectRatio();
+                    $constraint->upsize();
+                });
+            }
+        }else{
+            $explodeSize = explode('/', $_GET['size']);
+            $img_new->crop($explodeSize[0], $explodeSize[1]);
+            echo 'Цифра: '.$_GET['c'];
+        }
+        $img_new->save('images/upload/'.$_GET['filename']);
+
 
         return view('admin.blog.test');
     }
