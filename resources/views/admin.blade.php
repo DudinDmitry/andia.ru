@@ -3,7 +3,7 @@
 This is a starter template page. Use this page to start your new project from
 scratch. This page gets rid of all links and provides the needed markup only.
 -->
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -212,6 +212,42 @@ OR $_SERVER['REQUEST_URI']=='/admin/blog/add-article') text-blue @endif">
                                    class="nav-link @if($_SERVER['REQUEST_URI']=='/admin/blog/articles') active @endif">
                                     <i class="far fa-file-word nav-icon"></i>
                                     <p>Статьи</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/admin/blog/add-article"
+                                   class="nav-link @if($_SERVER['REQUEST_URI']=='/admin/blog/add-article') active @endif">
+                                    <i class="far fa-plus-square text-primary nav-icon"></i>
+                                    <p>Добавить статью</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- Магазин -->
+                    <li class="nav-item has-treeview">
+                        <a href="#" class="nav-link ">
+                            <i class="nav-icon fas fa-shopping-bag"></i>
+                            <p class="
+@if($_SERVER['REQUEST_URI']=='/admin/shop/categories'
+OR $_SERVER['REQUEST_URI']=='/admin/blog/articles'
+OR $_SERVER['REQUEST_URI']=='/admin/blog/add-article') text-blue @endif">
+                                Магазин
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="/admin/shop/categories"
+                                   class="nav-link @if($_SERVER['REQUEST_URI']=='/admin/shop/categories') active @endif">
+                                    <i class="far fa-folder nav-icon"></i>
+                                    <p>Категории</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/admin/blog/articles"
+                                   class="nav-link @if($_SERVER['REQUEST_URI']=='/admin/blog/articles') active @endif">
+                                    <i class="far fa-file nav-icon"></i>
+                                    <p>Товары</p>
                                 </a>
                             </li>
                             <li class="nav-item">

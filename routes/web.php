@@ -32,4 +32,7 @@ Route::match(['get','post'],'/admin/blog/edit-article/{id}','Blog\AdminEditBlogC
 //Админка Блог Добавление Статьи
 Route::match(['get','post'],'/admin/blog/add-article','Blog\AdminEditBlogController@addArticle');
 //Редактирование изображений
-Route::match(['get','post'],'test','Blog\AdminEditBlogController@imageEdit');
+Route::match(['get','post'],'edit-image','Blog\AdminEditBlogController@imageEdit');
+
+//Админка Магазин Категории
+Route::match(['get','post'],'/admin/shop/categories','Shop\ShopController@categories');

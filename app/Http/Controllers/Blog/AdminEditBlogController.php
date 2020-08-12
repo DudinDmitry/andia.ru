@@ -82,12 +82,14 @@ class AdminEditBlogController extends Controller
 
         }
 
-        return view('admin.blog.categories', ['meta' => $meta,
+        return view('admin.blog.categories', [
+            'meta' => $meta,
             'rootCategories' => $blogCategory->rootCategories(),
             'allCategories' => BlogCategory::all(),
             'request' => $request,
             'message' => $message,
-            'editUser' => $editUser]);
+            'editUser' => $editUser
+        ]);
     }
 
     public function articlesControl(Request $request)
@@ -242,9 +244,9 @@ class AdminEditBlogController extends Controller
         //Имя изображения
         if (!empty($_GET['filename'])) {
             $img = Images::make('images/upload/' . $_GET['filename']);
-            copy('images/upload/' . $_GET['filename'],'images/upload/'.$img->filename.'_old.'.explode('.',$_GET['filename'])[1]);
+            copy('images/upload/' . $_GET['filename'], 'images/upload/' . $img->filename . '_old.' . explode('.', $_GET['filename'])[1]);
         }
-        $img_new=$img;
+        $img_new = $img;
         //Ресайз по большей стороне
         if (!isset($_GET['c'])) {
             if (!empty($_GET['size'])) {
@@ -254,12 +256,12 @@ class AdminEditBlogController extends Controller
                     $constraint->upsize();
                 });
             }
-        }else{
+        } else {
             $explodeSize = explode('/', $_GET['size']);
             $img_new->crop($explodeSize[0], $explodeSize[1]);
-            echo 'Цифра: '.$_GET['c'];
+            echo 'Цифра: ' . $_GET['c'];
         }
-        $img_new->save('images/upload/'.$_GET['filename']);
+        $img_new->save('images/upload/' . $_GET['filename']);
 
 
         return view('admin.blog.test');
