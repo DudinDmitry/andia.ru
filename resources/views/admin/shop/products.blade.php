@@ -22,7 +22,7 @@
 
                     <div class="card-header">Управление товарами
                         <div class="col-md-2 float-right">
-                            <a href="/admin/shop/add-article"
+                            <a href="/admin/shop/add-product"
                                class="btn btn-outline-primary" value="Add">Добавить
                                 товар
                                 <i class="fa fa-plus-square text-primary" title="Добавить"></i>
