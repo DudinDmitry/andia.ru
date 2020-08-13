@@ -36,3 +36,9 @@ Route::match(['get','post'],'edit-image','Blog\AdminEditBlogController@imageEdit
 
 //Админка Магазин Категории
 Route::match(['get','post'],'/admin/shop/categories','Shop\ShopController@categories');
+//Админка Магазин Список товаров
+Route::match(['get','post'],'/admin/shop/products','Shop\ShopController@Products');
+//Админка Магазин Добавление товара
+Route::match(['get','post'],'admin/shop/add-product','Shop\ShopController@addProduct');
+//Админка Магазин Редактирование Товара
+Route::match(['get','post'],'/admin/shop/edit-product/{id}','Shop\ShopController@editProduct')->where('id','[0-9]+');

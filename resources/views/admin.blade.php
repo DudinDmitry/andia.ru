@@ -229,8 +229,8 @@ OR $_SERVER['REQUEST_URI']=='/admin/blog/add-article') text-blue @endif">
                             <i class="nav-icon fas fa-shopping-bag"></i>
                             <p class="
 @if($_SERVER['REQUEST_URI']=='/admin/shop/categories'
-OR $_SERVER['REQUEST_URI']=='/admin/blog/articles'
-OR $_SERVER['REQUEST_URI']=='/admin/blog/add-article') text-blue @endif">
+OR $_SERVER['REQUEST_URI']=='/admin/shop/products'
+OR $_SERVER['REQUEST_URI']=='/admin/shop/add-product') text-blue @endif">
                                 Магазин
                                 <i class="right fas fa-angle-left"></i>
                             </p>
@@ -244,17 +244,17 @@ OR $_SERVER['REQUEST_URI']=='/admin/blog/add-article') text-blue @endif">
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="/admin/blog/articles"
-                                   class="nav-link @if($_SERVER['REQUEST_URI']=='/admin/blog/articles') active @endif">
+                                <a href="/admin/shop/products"
+                                   class="nav-link @if($_SERVER['REQUEST_URI']=='/admin/shop/products') active @endif">
                                     <i class="far fa-file nav-icon"></i>
                                     <p>Товары</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="/admin/blog/add-article"
-                                   class="nav-link @if($_SERVER['REQUEST_URI']=='/admin/blog/add-article') active @endif">
+                                <a href="/admin/shop/add-product"
+                                   class="nav-link @if($_SERVER['REQUEST_URI']=='/admin/shop/add-product') active @endif">
                                     <i class="far fa-plus-square text-primary nav-icon"></i>
-                                    <p>Добавить статью</p>
+                                    <p>Добавить Товар</p>
                                 </a>
                             </li>
                         </ul>

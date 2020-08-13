@@ -128,7 +128,6 @@ class AdminEditBlogController extends Controller
 
         $meta['h1'] = 'Статьи';
         $message = '';
-        //dump($request->request);
         //Добавление новой статьи
         if ($request->submit_add_article == 'Add') {
             $newArticle = new BlogArticle;
@@ -171,7 +170,6 @@ class AdminEditBlogController extends Controller
     {
         $meta['h1'] = 'Статьи';
         $message = '';
-        //dump($request->request);
 
         //Редактирование статьи
         if ($request->submit_edit_article == 'Edit') {
@@ -203,7 +201,7 @@ class AdminEditBlogController extends Controller
             } else {
                 $newArticle->meta_title = NULL;
             }
-            if ($request->check['description'] == 'on') {
+            if (isset($request->check['description'])) {
                 $newArticle->meta_description = $request->meta['description'];
             } else {
                 $newArticle->meta_description = NULL;

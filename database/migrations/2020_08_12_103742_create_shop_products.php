@@ -18,12 +18,12 @@ class CreateShopProducts extends Migration
             $table->string('title');
             $table->integer('price')->default(0);
             $table->integer('category_id')->unsigned()->default(0);
-            $table->string('article_description')
+            $table->longText('product_description')
                 ->nullable();
-            $table->integer('article_active')->default(1);
-            $table->string('article_slug')
+            $table->integer('product_active')->default(1);
+            $table->string('product_slug')
                 ->unique();
-            $table->string('article_image')->nullable();
+            $table->string('product_image')->nullable();
             $table->timestamps();
             $table->softDeletes();
             $table->string('meta_title')->nullable()->default(NULL);
