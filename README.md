@@ -15,5 +15,6 @@
 Предварительно настроив соединение с БД
 <hr>
 Скриншоты проекта:<hr>
-<img src="https://prnt.sc/u6vsnf"><hr>
-<img src="https://prnt.sc/u6vvau">
+<img src="https://i.ibb.co/yNYyb02/Screenshot-1.jpg" ><hr>
+<img src="https://i.ibb.co/wS1Dqyk/Screenshot-2.jpg"><hr>
+<img src="https://i.ibb.co/6NSYppZ/Screenshot-3.jpg">
